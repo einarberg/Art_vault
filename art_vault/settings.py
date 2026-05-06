@@ -74,17 +74,23 @@ WSGI_APPLICATION = 'art_vault.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 # PostgreSQL
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'verklegt_namskeid_db',
+#        'USER': 'verklegt_db_user',
+#        'PASSWORD': 'Qvoe59RaUFAMrzOiKNtxK4zc',
+#        'HOST': 'db-verklegt-namskeid-ii-eu-nzg5ai.postgres.database.azure.com',
+#        'PORT': '5432'
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'verklegt_namskeid_db',
-        'USER': 'verklegt_db_user',
-        'PASSWORD': 'Qvoe59RaUFAMrzOiKNtxK4zc',
-        'HOST': 'db-verklegt-namskeid-ii-eu-nzg5ai.postgres.database.azure.com',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
