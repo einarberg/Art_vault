@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>all artworks</title>
+    <style>
+        body{
+            background-color: #F0E5D8;
+        }
+
+        .artwork-container{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #001F3F;
+        }
+
+        .artwork-info{
+            background-color: #003B5C;
+            color: #A2C2D4;
+            width: 336px;
+            height: 490px;
+        }
+
+        .artwork-thumbnail{
+            height: 347px;
+            width: 276px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="artwork-container">
+        {% for artwork in artworks %}
 
+            <div class="artwork-info">
+                <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>
+                <h3>{{artwork.title}}</h3>
+                <p>{{ artwork.artist }}</p>
+            </div>
+
+        {% endfor %}
+    </div>
 </body>
 </html>
