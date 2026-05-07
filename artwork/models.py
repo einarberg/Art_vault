@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import Seller
+from django.user.models import Seller
 
 
 class Artwork(models.Model):
