@@ -37,9 +37,11 @@
         {% for artwork in artworks %}
 
             <div class="artwork-info">
-                <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>
-                <h3>{{artwork.title}}</h3>
-                <p>{{ artwork.artist }}</p>
+                <a href="{% url "artwork-by-id" id=artwork.id %}">
+                    <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>
+                    <h3>{{artwork.title}}</h3>
+                    <p>{{ artwork.artist }}</p>
+                </a>
             </div>
 
         {% endfor %}
