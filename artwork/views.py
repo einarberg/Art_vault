@@ -185,8 +185,8 @@ def index(request):
 
 
 def get_artwork_by_id(request, id):
-    artwork = [x for x in artworks if x['id'] == id]
-    
+    artwork_info = [x for x in artworks if x['id'] == id][0]
+
     return render(request, "artwork/artwork.html", {
-        "artwork": artwork
+        "artwork": artwork_info
     })
