@@ -15,16 +15,19 @@
             background-color: #001F3F;
         }
 
-        .artwork-info{
+        .artwork-images{
             background-color: #003B5C;
+            width: 496px;
+            height: 677px;
+        }
+
+        .artwork-info{
             color: #A2C2D4;
-            width: 336px;
-            height: 490px;
         }
 
         .artwork-thumbnail{
-            height: 347px;
-            width: 276px;
+            height: 576px;
+            width: 458px;
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -34,10 +37,22 @@
 </head>
 <body>
     <a href="javascript:history.back()">back</a>
-    <div class="artwork-info">
-        <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>
-        <h3>{{artwork.title}}</h3>
-        <p>{{ artwork.artist }}</p>
+    <div class="artwork-container">
+        <div class="artwork-images">
+            <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>
+        </div>
+        <div class="artwork-info">
+            <h1>{{ artwork.title }}</h1>
+            <p>By: {{ artwork.artist }}</p>
+            <p>Medium: {{ artwork.medium }}</p>
+            <p>Style: {{ artwork.style }}</p>
+            <p>Starting bid:</p>
+            <p>Dimensions: {{ artwork.dimensions }}</p>
+            <p>Year of creation: {{ artwork.year_of_creation }}</p>
+            <p>Edition: {{ artwork.edition }}</p>
+            <p>Provenance: {{ artwork.provenance }}</p>
+        </div>
+        <div></div>
     </div>
 </body>
 </html>
