@@ -1,6 +1,6 @@
 from django.db import models
-from django.db.models import Artwork
-from django.db.models import Buyer
+from django.artwork.models import Artwork
+from django.user.models import Buyer
 
 
 class Bid(models.Model):
