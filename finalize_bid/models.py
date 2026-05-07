@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models import Artwork
+from django.db.models import Buyer
+
 
 class Bid(models.Model):
     artwork = models.ForeignKey(
