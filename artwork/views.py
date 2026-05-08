@@ -176,6 +176,30 @@ artworks = [
     }
 ]
 
+for item in artworks:
+    Artwork.objects.create(
+        title=item["title"],
+        artist=item["artist"],
+        edition=item["edition"],
+        medium=item["medium"],
+        style=item["style"],
+        dimensions=item["dimensions"],
+        thumbnail=item["thumbnail"],
+        year_of_creation=item["year_of_creation"],
+        provenance=item["provenance"],
+        listing_date=datetime.strptime(
+            item["listing_date"],
+            "%d-%m-%Y"
+        ).date()
+    )
+
+def get_all_artworks(request):
+    artworks = Artwork.objects.filter(active=True)
+    return render(request, "artwork/all_artworks.html", {"artwork": artworks})
+
+def get_artwork_by_id_2(request, artwork_id):
+    artwork = get_object_or_404(artwork, id=artwork_id)
+    return render(request, "artwork/artwork.html", {"artwork": artwork_info})
 
 
 def index(request):
