@@ -1,45 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>artwork</title>
-    <style>
-        body{
-            background-color: #F0E5D8;
-        }
+{% extends "base.html" %}
 
-        .artwork-container{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            background-color: #001F3F;
-        }
-
-        .artwork-images{
-            background-color: #003B5C;
-            width: 496px;
-            height: 677px;
-        }
-
-        .artwork-info{
-            color: #A2C2D4;
-        }
-
-        .artwork-thumbnail{
-            height: 576px;
-            width: 458px;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-    </style>
-</head>
-<body>
+{% block content %}
     <a href="javascript:history.back()">back</a>
     <div class="artwork-container">
         <div class="artwork-images">
-            <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>
+            <div class="artwork-thumbnail" style="background-image: url('{{ artwork.thumbnail }}')"></div>
         </div>
         <div class="artwork-info">
             <h1>{{ artwork.title }}</h1>
@@ -54,5 +19,4 @@
         </div>
         <div></div>
     </div>
-</body>
-</html>
+{% endblock %}

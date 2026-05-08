@@ -1,38 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>all artworks</title>
-    <style>
-        body{
-            background-color: #F0E5D8;
-        }
+{% extends "base.html" %}
 
-        .artwork-container{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            background-color: #001F3F;
-        }
-
-        .artwork-info{
-            background-color: #003B5C;
-            color: #A2C2D4;
-            width: 336px;
-            height: 490px;
-        }
-
-        .artwork-thumbnail{
-            height: 347px;
-            width: 276px;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-    </style>
-</head>
-<body>
+{% block content %}
     <div class="artwork-container">
         {% for artwork in artworks %}
 
@@ -46,5 +14,4 @@
 
         {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}

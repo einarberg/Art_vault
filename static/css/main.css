@@ -1,0 +1,35 @@
+body{
+    background-color: #F0E5D8;
+}
+
+.artwork-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background-color: #001F3F;
+}
+
+.artwork-info{
+    background-color: #003B5C;
+    color: #A2C2D4;
+    width: 336px;
+    height: 490px;
+}
+
+.artwork-thumbnail{
+    height: 347px;
+    width: 276px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.artwork-images{
+    background-color: #003B5C;
+    width: 496px;
+    height: 677px;
+}
+
+.artwork-info{
+    color: #A2C2D4;
+}
