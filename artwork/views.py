@@ -176,6 +176,7 @@ artworks = [
     }
 ]
 
+"""
 for item in artworks:
     Artwork.objects.create(
         title=item["title"],
@@ -200,13 +201,17 @@ def get_all_artworks(request):
 def get_artwork_by_id_2(request, artwork_id):
     artwork = get_object_or_404(artwork, id=artwork_id)
     return render(request, "artwork/artwork.html", {"artwork": artwork_info})
+"""
 
-
-def index(request):
-    return render(request, "artwork/all_artworks.html", {
+def homepage(request):
+    return render(request, "artwork/homepage.html", {
         "artworks": artworks
     })
 
+def all_artworks(request):
+    return render(request, "artwork/all_artworks.html", {
+        "artworks": artworks
+    })
 
 def get_artwork_by_id(request, id):
     artwork_info = [x for x in artworks if x['id'] == id][0]
