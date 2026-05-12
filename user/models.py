@@ -11,7 +11,7 @@ class User(models.Model):
         null=True
     )
 
-    bio = models.TextField(blank=True)
+    bio = models.TextField(blank=True, null=True)
     cover_image = models.ImageField(
         upload_to='covers/',
         blank=True,
