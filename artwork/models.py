@@ -1,5 +1,6 @@
 from django.db import models
 from user.models import Seller
+from user.models import Artist
 
 
 class Artwork(models.Model):
@@ -9,6 +10,12 @@ class Artwork(models.Model):
         related_name='artworks'
     )
 
+    artist = models.ForeignKey(
+        Artist,
+        on_delete=models.CASCADE,
+        related_name='artworks'
+    )
+    
     title = models.CharField(max_length=200)
 
     dimensions = models.CharField(max_length=100)
