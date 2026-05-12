@@ -2,6 +2,7 @@ from django.core.signals import request_started
 from django.http import HttpResponse
 from django.shortcuts import render
 from artwork.models import Artwork
+from django.shortcuts import get_object_or_404
 
 
 def get_all_artworks(request):
