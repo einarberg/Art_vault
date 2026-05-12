@@ -7,12 +7,12 @@ from django.shortcuts import get_object_or_404
 
 def all_artworks(request):
     artworks = Artwork.objects.all()
-    return render(request, "artwork/all_artworks.html", {"artworks": artworks})
+    return render(request, "artwork/all_artworks.html", {"artwork": artworks})
 
 def homepage(request):
     artworks = Artwork.objects.all()
     return render(request, "artwork/homepage.html", {"artwork": artworks})
     
-def get_artwork_by_id(request, artwork_id, id):
+def get_artwork_by_id(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id)
     return render(request, "artwork/artwork.html", {"artwork": artwork})
