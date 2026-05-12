@@ -5,7 +5,7 @@ from artwork.models import Artwork
 from django.shortcuts import get_object_or_404
 
 
-def get_all_artworks(request):
+def all_artworks(request):
     artworks = Artwork.objects.filter(active=True)
     return render(request, "artwork/all_artworks.html", {"artwork": artworks})
 
