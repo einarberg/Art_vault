@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 
 def all_artworks(request):
     artworks = Artwork.objects.all()
-    return render(request, "artwork/all_artworks.html", {"artwork": artworks})
+    return render(request, "artwork/all_artworks.html", {"artworks": artworks})
 
 def homepage(request):
     artworks = Artwork.objects.all()
