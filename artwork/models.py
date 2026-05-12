@@ -21,8 +21,11 @@ class Artwork(models.Model):
     )
 
     medium = models.CharField(max_length=100)
-    style = models.CharField(max_length=100)
-
+    style = models.ForeignKey(
+        Style,
+        on_delete=models.CASCADE,
+        related_name='artworks'
+    )
     bid_price = models.IntegerField()
 
     listing_date = models.DateField()
@@ -35,6 +38,11 @@ class Artwork(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Style(models.Model):
+    style = models.Charfield(max_length=100)
+    explanation = models.Charfield(max_length=100)
 
 
 class Picture(models.Model):
