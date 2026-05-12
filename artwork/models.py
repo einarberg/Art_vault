@@ -4,8 +4,8 @@ from user.models import Artist
 
 
 class Style(models.Model):
-    style = models.Charfield(max_length=100)
-    explanation = models.Charfield(max_length=100)
+    style = models.CharField(max_length=100)
+    explanation = models.CharField(max_length=100)
 
 
 class Artwork(models.Model):
