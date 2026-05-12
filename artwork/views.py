@@ -14,5 +14,5 @@ def homepage(request):
     return render(request, "artwork/homepage.html", {"artwork": artworks})
     
 def get_artwork_by_id(request, artwork_id):
-    artwork = get_object_or_404(artwork, id=artwork_id)
-    return render(request, "artwork/artwork.html", {"artwork": artwork_info})
+    artwork = get_object_or_404(Artwork, id=artwork_id)
+    return render(request, "artwork/artwork.html", {"artwork": artwork})
