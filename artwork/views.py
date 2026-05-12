@@ -1,8 +1,8 @@
 from django.core.signals import request_started
 from django.http import HttpResponse
 from django.shortcuts import render
+from artwork.models import Artwork
 
-# Create your views here.
 
 def get_all_artworks(request):
     artworks = Artwork.objects.filter(active=True)
