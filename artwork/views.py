@@ -6,11 +6,11 @@ from django.shortcuts import get_object_or_404
 
 
 def all_artworks(request):
-    artworks = Artwork.objects.filter(True=True)
-    return render(request, "artwork/all_artworks.html", {"artwork": artworks})
+    artworks = Artwork.objects.all()
+    return render(request, "artwork/all_artworks.html", {"artworks": artworks})
 
 def homepage(request):
-    artworks = Artwork.objects.filter(True=True)
+    artworks = Artwork.objects.all()
     return render(request, "artwork/homepage.html", {"artwork": artworks})
     
 def get_artwork_by_id(request, artwork_id, id):
