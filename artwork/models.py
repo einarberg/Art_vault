@@ -5,7 +5,7 @@ from user.models import Artist
 
 class Style(models.Model):
     style = models.CharField(max_length=100)
-    explanation = models.CharField(max_length=100)
+    explanation = models.CharField(max_length=200)
 
 
 class Artwork(models.Model):
