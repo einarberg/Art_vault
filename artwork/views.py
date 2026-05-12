@@ -13,6 +13,6 @@ def homepage(request):
     artworks = Artwork.objects.all()
     return render(request, "artwork/homepage.html", {"artwork": artworks})
     
-def get_artwork_by_id(request, artwork_id):
-    artwork = get_object_or_404(Artwork, id=artwork_id)
+def get_artwork_by_id(request, id):
+    artwork = get_object_or_404(Artwork, id=id)
     return render(request, "artwork/artwork.html", {"artwork": artwork})
