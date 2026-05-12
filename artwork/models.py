@@ -3,6 +3,11 @@ from user.models import Seller
 from user.models import Artist
 
 
+class Style(models.Model):
+    style = models.Charfield(max_length=100)
+    explanation = models.Charfield(max_length=100)
+
+
 class Artwork(models.Model):
     seller = models.ForeignKey(
         Seller,
@@ -45,11 +50,6 @@ class Artwork(models.Model):
 
     def __str__(self):
         return self.title
-
-
-class Style(models.Model):
-    style = models.Charfield(max_length=100)
-    explanation = models.Charfield(max_length=100)
 
 
 class Picture(models.Model):
