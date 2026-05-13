@@ -48,3 +48,53 @@ class Contact_information(models.Model):
     Postal_code = models.CharField(max_length=100)
     Country = models.CharField(max_length=100)
 
+
+class Credit_card
+    buyer = models.ForeignKey(
+        Buyer,
+        on_delete=models.CASCADE,
+        related_name='finalize_bid'
+    )
+
+    bid = models.ForeignKey(
+        Bid,
+        on_delete=models.CASCADE,
+        related_name='finalize_bid'
+    )
+    cvc = models.IntegerField()
+    expiry_date = models.CharField(max_length=100)
+    number = models.IntegerField()
+    cardholder_name = models.CharField(max_length=100)
+
+
+class Wire_transfer
+    buyer = models.ForeignKey(
+        Buyer,
+        on_delete=models.CASCADE,
+        related_name='finalize_bid'
+    )
+
+    bid = models.ForeignKey(
+        Bid,
+        on_delete=models.CASCADE,
+        related_name='finalize_bid'
+    )
+    account_number = models.IntegerField()
+    routing number = models.IntegerField()
+    bank_name = models.CharField(max_length=100)
+
+
+class Bank_transfer
+    buyer = models.ForeignKey(
+        Buyer,
+        on_delete=models.CASCADE,
+        related_name='finalize_bid'
+    )
+
+    bid = models.ForeignKey(
+        Bid,
+        on_delete=models.CASCADE,
+        related_name='finalize_bid'
+    )
+    bank_account = models.CharField(max_length=100)
+
