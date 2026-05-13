@@ -29,7 +29,7 @@ class Bid(models.Model):
 
 
 class Contact_information(models.Model):
-    national_id = CharField(max_length=100)
+    national_id = models.CharField(max_length=100)
 
     buyer = models.ForeignKey(
         Buyer,
@@ -43,8 +43,8 @@ class Contact_information(models.Model):
         related_name='finalize_bid'
     )
 
-    Street_name = CharField(max_length=100)
-    City = CharField(max_length=100)
-    Postal_code = CharField(max_length=100)
-    Country = CharField(max_length=100)
+    Street_name = models.CharField(max_length=100)
+    City = models.CharField(max_length=100)
+    Postal_code = models.CharField(max_length=100)
+    Country = models.CharField(max_length=100)
 
