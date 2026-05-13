@@ -7,16 +7,29 @@
             <div class="artwork-thumbnail" style="background-image: url('{{ artwork.thumbnail }}')"></div>
         </div>
         <div class="artwork-info">
-            <h1>{{ artwork.title }}</h1>
-            <p>By: {{ artwork.artist }}</p>
-            <p>Medium: {{ artwork.medium }}</p>
-            <p>Style: {{ style.style }}</p>
-            <p>Starting bid:</p>
-            <p>Dimensions: {{ artwork.dimensions }}</p>
-            <p>Year of creation: {{ artwork.year_of_creation }}</p>
-            <p>Edition: {{ artwork.edition }}</p>
-            <p>Provenance: {{ artwork.provenance }}</p>
+            <div>
+                <h1>{{ artwork.title }}</h1>
+                <p>By: {{ artwork.artist.seller.user.name }}</p>
+                <p>Medium: {{ artwork.medium }}</p>
+                <p>Style: {{ style.style }}</p>
+                <p>Starting bid:</p>
+                <p>Dimensions: {{ artwork.dimensions }}</p>
+                <p>Year of creation: {{ artwork.year_of_creation }}</p>
+                <p>Edition: {{ artwork.edition }}</p>
+                <p>Provenance: {{ artwork.provenance }}</p>
+            </div>
+            <div>
+                {% if artwork.bid_status == "Sold" %}
+                    <p>Sold</p>
+                {% elif artwork.bid_status == "Starting" %}
+                    <p>submit bid</p>
+                {% else %}
+                    <p>resubmit bid</p>
+                {% endif %}
+            </div>
         </div>
-        <div></div>
+        <div>
+            <h1>{{ artwork.seller }}</h1>
+        </div>
     </div>
 {% endblock %}
