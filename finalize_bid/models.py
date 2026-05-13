@@ -33,13 +33,13 @@ class Contact_information(models.Model):
 
     buyer = models.ForeignKey(
         Buyer,
-        on_delete.models=CASCADE,
+        on_delete=models.CASCADE,
         related_name='finalize_bid'
     )
 
     bid = models.ForeignKey(
         Bid,
-        on_delete.models=CASCADE,
+        on_delete=models.CASCADE,
         related_name='finalize_bid'
     )
 
