@@ -27,4 +27,5 @@ urlpatterns = [
 
     path('finalize_bid/', include('finalize_bid.urls')),
     path('admin/', admin.site.urls),
+    path('Users/', include('user.urls')),
 ]
