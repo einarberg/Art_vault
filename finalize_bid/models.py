@@ -49,7 +49,7 @@ class Contact_information(models.Model):
     Country = models.CharField(max_length=100)
 
 
-class Credit_card
+class Credit_card(models.Model):
     buyer = models.ForeignKey(
         Buyer,
         on_delete=models.CASCADE,
@@ -67,7 +67,7 @@ class Credit_card
     cardholder_name = models.CharField(max_length=100)
 
 
-class Wire_transfer
+class Wire_transfer(models.Model):
     buyer = models.ForeignKey(
         Buyer,
         on_delete=models.CASCADE,
@@ -84,7 +84,7 @@ class Wire_transfer
     bank_name = models.CharField(max_length=100)
 
 
-class Bank_transfer
+class Bank_transfer(models.Model):
     buyer = models.ForeignKey(
         Buyer,
         on_delete=models.CASCADE,
