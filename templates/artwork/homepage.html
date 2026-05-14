@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>homepage</h1>
     <div class="search">
-        <!-- TODO: add search function -->
+        <div class="input-group mb-3 mt-1">
+            <input type="search" id="search-value" class="form-control" placeholder="Enter search..." aria-label="Search" aria-describedby="search-icon" />
+            <span class="input-group-text" id="search-icon">🔍</span>
+        </div>
     </div>
     <div class="expiring-bids">
 
