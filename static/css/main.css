@@ -48,6 +48,29 @@ body{
     color: #A2C2D4;
 }
 
+.nav-link{
+    color: #A2C2D4;
+}
+
+.input-group{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.form-control{
+    background-color: #A2C2D4;
+    color: #005B5C;
+    border-bottom: 2.5px solid #005B5C;
+    border-left: 2.5px solid #005B5C;
+    border-top: 2.5px solid #005B5C;
+    border-right: 0px;
+}
+
+.input-group-text{
+    background-color: #A2C2D4;
+    border: 2px solid #005B5C;
+}
+
 #navbar{
     background-color: #003B5C !important;
     border-bottom: 2.5px solid #005B5C !important;
