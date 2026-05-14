@@ -5,10 +5,8 @@
             <div class="navbar-nav">
                 <a class="nav-link" href="{% url "all-artworks" %}">All Artworks</a>
                 <a class="nav-link" href="{% url "all-artists" %}">All artist</a>
-                <!-- TODO: add if statements to finalize bid and profile -->
-
-
                 {% if user.is_authenticated %}
+                    <!-- TODO: add if statements to make finalize bid disabled if they have no bid to finalize -->
                     <a class="nav-link" aria-disabled="true" href="{% url "finalize-bid-index" %}">Finalize bids</a>
                     <li class="nav_item">
                         <form method="post" action="{% url 'logout' %}">

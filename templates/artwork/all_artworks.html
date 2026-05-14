@@ -4,6 +4,8 @@
     <div class="all-artwork-container">
         {% for artwork in artworks %}
 
+            <!-- TODO: make it look better -->
+
             <div class="artwork-info">
                 <a href="{% url "artwork-by-id" id=artwork.id %}">
                     <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>

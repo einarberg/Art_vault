@@ -3,7 +3,8 @@
 {% block content %}
     <div class="all-artwork-container">
         {% for artwork in artworks %}
-
+            <!-- TODO: make it look better -->
+            <!-- TODO: fix images that or not loading -->
             <div class="artwork-info">
                 <a href="#">
                     <div class="artwork-thumbnail" style="background-image: url('{{ artwork.seller.user.profile_image }}')"></div>
