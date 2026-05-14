@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <a href="javascript:history.back()">back</a>
     <div class="artwork-container">
         <div class="artwork-images">
             <div class="artwork-thumbnail" style="background-image: url('{{ artwork.thumbnail }}')"></div>
@@ -29,7 +28,8 @@
             </div>
         </div>
         <div>
-            <h1>{{ artwork.seller }}</h1>
+            <div class="profile-thumbnail" style="background-image: url('{{ artwork.seller.user.profile_image }}')"></div>
+            <p>Seller: {{ artwork.seller.user.name }}</p>
         </div>
     </div>
 {% endblock %}

@@ -53,13 +53,13 @@ class Credit_card(models.Model):
     buyer = models.ForeignKey(
         Buyer,
         on_delete=models.CASCADE,
-        related_name='finalize_bid'
+        related_name='credit_card'
     )
 
     bid = models.ForeignKey(
         Bid,
         on_delete=models.CASCADE,
-        related_name='finalize_bid'
+        related_name='credit_card'
     )
     cvc = models.IntegerField()
     expiry_date = models.CharField(max_length=100)
@@ -71,16 +71,16 @@ class Wire_transfer(models.Model):
     buyer = models.ForeignKey(
         Buyer,
         on_delete=models.CASCADE,
-        related_name='finalize_bid'
+        related_name='wire_transfer'
     )
 
     bid = models.ForeignKey(
         Bid,
         on_delete=models.CASCADE,
-        related_name='finalize_bid'
+        related_name='wire_transfer'
     )
     account_number = models.IntegerField()
-    routing number = models.IntegerField()
+    routing_number = models.IntegerField()
     bank_name = models.CharField(max_length=100)
 
 
@@ -88,13 +88,13 @@ class Bank_transfer(models.Model):
     buyer = models.ForeignKey(
         Buyer,
         on_delete=models.CASCADE,
-        related_name='finalize_bid'
+        related_name='bank_transfer'
     )
 
     bid = models.ForeignKey(
         Bid,
         on_delete=models.CASCADE,
-        related_name='finalize_bid'
+        related_name='bank_transfer'
     )
     bank_account = models.CharField(max_length=100)
 

@@ -2,9 +2,15 @@ body{
     background-color: #F0E5D8;
 }
 
-.artwork-container{
+.all-artwork-container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background-color: #001F3F;
+}
+.artwork-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     background-color: #001F3F;
 }
@@ -14,6 +20,14 @@ body{
     color: #A2C2D4;
     width: 336px;
     height: 490px;
+}
+
+.profile-thumbnail{
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .artwork-thumbnail{

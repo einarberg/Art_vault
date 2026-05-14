@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="all-artwork-container">
+        {% for artwork in artworks %}
+
+            <div class="artwork-info">
+                <a href="#">
+                    <div class="artwork-thumbnail" style="background-image: url('{{ artwork.seller.user.profile_image }}')"></div>
+                    <h3>{{artwork.artist.seller.user.name}}</h3>
+                </a>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
