@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="javascript:history.back()">back</a>
+    <!-- TODO: Add edit username and profile picture -->
+    <h1>Profile</h1>
+
+{% endblock %}
