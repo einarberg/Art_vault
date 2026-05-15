@@ -88,3 +88,8 @@ body{
     border-bottom: 2.5px solid #005B5C !important;
     filter: drop-shadow(1px 3px 10px) !important;
 }
+
+#artwork-search{
+    display: flex;
+    flex-wrap: wrap;
+}

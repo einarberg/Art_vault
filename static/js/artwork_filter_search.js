@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const json = await response.json();
                 const artworks = json.data.map(artwork =>`
                 <div class="artwork-info">
-                    <a href="#">
+                    <a href="${ artwork.id }">
                         <div>
                             <div class="artwork-thumbnail" style='background-image: url("${artwork.thumbnail}")'></div>
                         </div>
                         <h3>${artwork.title}</h3>
-                        <!--<p>{artwork.artist.seller.user.name}</p>-->
+                        <p>${artwork.artist}</p>
                     </a>
                 </div>
                 

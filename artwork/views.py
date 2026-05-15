@@ -10,14 +10,28 @@ from django.shortcuts import get_object_or_404
 
 
 def homepage(request):
-    if 'search_filter' in request.GET:
+
+    search_filter = request.GET.get('search_filter')
+
+    if search_filter is not None:
+
+        artworks = (
+            Artwork.objects
+            .filter(title__icontains=search_filter)
+            .select_related('artist')
+            .order_by('title')
+        )
+
         return JsonResponse({
-            'data': [{
-                'id': x.id,
-                'thumbnail': str(x.thumbnail) if x.thumbnail else None,
-                'title': x.title,
-                'artist': x.artist.seller.user.name,
-            } for x in Artwork.objects.filter(title__icontains=request.GET['search_filter']).order_by('title')]
+            'data': [
+                {
+                    'id': x.id,
+                    'thumbnail': str(x.thumbnail) if x.thumbnail else None,
+                    'title': x.title,
+                    'artist': x.artist.seller.user.name,
+                }
+                for x in artworks
+            ]
         })
 
     artworks = Artwork.objects.all()
