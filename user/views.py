@@ -22,5 +22,12 @@ def profile(request, id):
 
 
 def edit_profile(request):
-    return render(request, 'Users/Profile/Edit.html')
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=request.user)
 
+    return render(request, 'Users/Profile/Edit.html', {'form': form})
