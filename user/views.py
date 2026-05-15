@@ -1,3 +1,4 @@
+from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
@@ -23,11 +24,11 @@ def profile(request, id):
 
 def edit_profile(request):
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=request.user)
+        form = UserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
             return redirect('profile')
     else:
-        form = ProfileForm(instance=request.user)
+        form = UserChangeForm(instance=request.user)
 
     return render(request, 'Users/Profile/Edit.html', {'form': form})
