@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="javascript:history.back()">back</a>
+
+    <form method="post" action="{% url 'edit_profile' %}">
+
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn btn-primary" value="Submit" />
+
+    </form>
+{% endblock %}
