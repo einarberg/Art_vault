@@ -22,13 +22,20 @@ def homepage(request):
 
     artworks = Artwork.objects.all()
     return render(request, "artwork/homepage.html", {"artwork": artworks})
+
+
 def all_artworks(request):
     artworks = Artwork.objects.all()
     return render(request, "artwork/all_artworks.html", {"artworks": artworks})
+
+
 def all_artists(request):
     artworks = Artwork.objects.all()
     return render(request, "artwork/all_artist.html", {"artworks": artworks})
+
+
 def get_artwork_by_id(request, id):
     artwork = get_object_or_404(Artwork, id=id)
     style = get_object_or_404(Style, id=artwork.style_id)
     return render(request, "artwork/artwork.html", {"artwork": artwork, "style": style})
+
