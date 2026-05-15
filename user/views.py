@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserChangeForm
+from user.forms import ProfileForm
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
