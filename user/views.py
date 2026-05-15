@@ -15,3 +15,8 @@ def register(request):
 
 def profile(request):
     return render(request, 'Users/Profile.html')
+
+
+def edit_profile(request):
+    return render(request, 'Users/Profile/Edit.html')
+
