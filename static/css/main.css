@@ -30,6 +30,16 @@ body{
     background-repeat: no-repeat;
 }
 
+.avatar{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: solid .5px gray;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .artwork-thumbnail{
     height: 347px;
     width: 276px;
