@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     function registerSearchButtonHandler(){
-        const searchButton = document.getElementById('search-icon');
-        searchButton.addEventListener('click',async function () {
+        const searchValueElement = document.getElementById('search-value');
+        searchValueElement.addEventListener('keyup',async function () {
             const searchValueElement = document.getElementById('search-value');
             const value = searchValueElement.value;
             const artworkPlaceholder = document.getElementById('artwork-search');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="artwork-info">
                     <a href="#">
                         <div>
-                            <div class="artwork-thumbnail" style="background-image: url('${artwork.thumbnail}')"></div>
+                            <div class="artwork-thumbnail" style='background-image: url("${artwork.thumbnail}")'></div>
                         </div>
                         <h3>${artwork.title}</h3>
                         <!--<p>{artwork.artist.seller.user.name}</p>-->

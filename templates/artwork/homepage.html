@@ -4,19 +4,9 @@
     <div class="search">
         <div class="input-group mb-3 mt-3">
             <input type="search" id="search-value" class="form-control" placeholder="Enter search..." aria-label="Search" aria-describedby="search-icon" />
-            <span class="input-group-text" id="search-icon">🔍</span>
         </div>
         <div id="artwork-search">
-            {% for artwork in artworks %}
-                <div class="artwork-info">
-                    <a href="{% url "artwork-by-id" id=artwork.id %}">
-                        <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>
-                        <h3>{{artwork.title}}</h3>
-                        <p>{{ artwork.artist.seller.user.name }}</p>
-                    </a>
-                </div>
 
-            {% endfor %}
         </div>
     </div>
     <div class="expiring-bids">

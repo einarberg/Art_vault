@@ -71,10 +71,7 @@ body{
 .form-control{
     background-color: #A2C2D4;
     color: #005B5C;
-    border-bottom: 2.5px solid #005B5C;
-    border-left: 2.5px solid #005B5C;
-    border-top: 2.5px solid #005B5C;
-    border-right: 0px;
+    border: 2.5px solid #005B5C;
 }
 
 .input-group-text{

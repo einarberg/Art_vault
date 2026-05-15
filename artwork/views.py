@@ -14,7 +14,7 @@ def homepage(request):
         return JsonResponse({
             'data': [{
                 'id': x.id,
-                'thumbnail': x.thumbnail.url if x.thumbnail else None,
+                'thumbnail': str(x.thumbnail) if x.thumbnail else None,
                 'title': x.title,
                 'artist': x.artist.seller.user.name,
             } for x in Artwork.objects.filter(title__icontains=request.GET['search_filter']).order_by('title')]
