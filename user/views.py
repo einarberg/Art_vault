@@ -1,20 +1,26 @@
 from user.forms import ProfileForm
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from user.models import User
+from user.forms import CustomUserCreationForm
 
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
+
+        print(form.errors)
+
         if form.is_valid():
             form.save()
             return redirect('login')
     else:
-        return render(request, 'Users/register.html', {
-            'form': UserCreationForm()
-        })
+        form = CustomUserCreationForm()
+
+    # Reload page with form + errors
+    return render(request, 'Users/register.html', {
+        'form': form
+    })
 
 
 def profile(request, id):
