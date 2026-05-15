@@ -13,6 +13,7 @@ def register(request):
             'form': UserCreationForm()
         })
 
+
 def profile(request):
     return render(request, 'Users/Profile.html')
 
