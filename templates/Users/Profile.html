@@ -4,7 +4,12 @@
     <a href="javascript:history.back()">back</a>
     <h1>Profile</h1>
 
-    <!-- TODO: Display profile picture and username -->
+    <div class="user_info">
+        <a>{{ user.name }}</a>
+        <a>{{ user.email }}</a>
+        <a>{{ user.bio }}</a>
+        <a>{{ user.profile_image }}</a>
+    </div>
 
     <a href="{% url 'edit_profile' %}">
         <button>Edit Profile</button>
