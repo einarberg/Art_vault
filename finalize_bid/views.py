@@ -8,3 +8,9 @@ def index(request):
     return render(request, "finalize_bid/finalize_bid.html", {
         "artwork": None
     })
+
+
+def get_bids(request, id):
+    bids = Bid.objects.filter(id=buyer.user.id)
+    return render(request, "finalize_bid/bids.html", {"bids": bids})
+
