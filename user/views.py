@@ -24,11 +24,11 @@ def profile(request, id):
 
 def edit_profile(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user)
+        form = ProfileForm(instance=request.user)
         if form.is_valid():
             form.save()
             return redirect('profile')
     else:
-        form = UserChangeForm(instance=request.user)
+        form = ProfileForm(instance=request.user)
 
     return render(request, 'Users/Profile_edit.html', {'form': form})
