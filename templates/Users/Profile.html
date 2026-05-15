@@ -5,10 +5,10 @@
     <h1>Profile</h1>
 
     <div class="user_info">
-        <a>{{ user.name }}</a>
-        <a>{{ user.email }}</a>
-        <a>{{ user.bio }}</a>
-        <div class="artwork_thumbnail" style="background-image: url('{{user.profile_image}}')"></div>
+        <p>{{ user.name }}</p>
+        <p>{{ user.email }}</p>
+        <p>{{ user.bio }}</p>
+        <div class="artwork_thumbnail" style="background-image: url('{{user.profile_image.url}}')"></div>
     </div>
 
     <a href="{% url 'edit_profile' %}">
