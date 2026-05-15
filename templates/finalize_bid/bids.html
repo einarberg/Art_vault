@@ -2,5 +2,15 @@
 
 {% block content %}
     <a href="javascript:history.back()">back</a>
+    <div class="all-bid-container">
+        {% for bid in bids %}
 
+        <div class="bid-info">
+            <h3>{{bid.artwork.title}}</h3>
+            <p>{{ bid.price }}</p>
+            <p>{{ bid.date_of_bid }}</p>
+            <p>{{ bid.expiration_date }}</p>
+            <p>{{ bid.status }}</p>
+        </div>
+    </div>
 {% endblock %}
