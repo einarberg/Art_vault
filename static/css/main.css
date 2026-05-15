@@ -55,6 +55,7 @@ body{
 .input-group{
     padding-left: 20px;
     padding-right: 20px;
+    filter: drop-shadow(1px 2px 10px) !important;
 }
 
 .form-control{
@@ -68,10 +69,16 @@ body{
 
 .input-group-text{
     background-color: #A2C2D4;
-    border: 2px solid #005B5C;
+    border: 2.5px solid #005B5C;
+}
+
+.navbar-brand{
+    color: #A2C2D4;
+    font-weight: bold;
 }
 
 #navbar{
     background-color: #003B5C !important;
     border-bottom: 2.5px solid #005B5C !important;
+    filter: drop-shadow(1px 3px 10px) !important;
 }
