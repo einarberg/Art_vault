@@ -31,4 +31,4 @@ def edit_profile(request):
     else:
         form = UserChangeForm(instance=request.user)
 
-    return render(request, 'Users/Profile/Edit.html', {'form': form})
+    return render(request, 'Users/Profile_edit.html', {'form': form})
