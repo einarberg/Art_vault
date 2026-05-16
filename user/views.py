@@ -45,3 +45,9 @@ def edit_profile(request):
         form = ProfileForm(instance=request.user)
 
     return render(request, 'Users/Profile_edit.html', {'form': form})
+
+
+def all_artists(request):
+    artists = User.objects.filter(seller__artist__isnull=False)
+    return render(request, 'artwork/all_artist.html', {'artists':artists}
+
