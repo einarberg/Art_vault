@@ -31,7 +31,7 @@ def profile(request, id):
 
 def seller_profile(request, id):
     sellerid = id
-    artworks = Artwork.objects.filter(sellerid=seller__user__id)
+    artworks = Artwork.objects.filter(seller.user.id=sellerid)
     user = get_object_or_404(User, id=id)
     return render(request, 'Users/Seller_profile.html', {"user": user, "artworks": artworks})
 
