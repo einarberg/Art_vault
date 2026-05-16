@@ -11,6 +11,6 @@ def index(request):
 
 
 def get_bids(request, id):
-    bids = Bid.objects.filter(id=buyer.user.id)
+    bids = Bid.objects.filter(buyer__user__id=id)
     return render(request, "finalize_bid/bids.html", {"bids": bids})
 
