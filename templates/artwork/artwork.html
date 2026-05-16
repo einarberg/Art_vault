@@ -58,7 +58,9 @@
         </div>
         <div>
             <div class="profile-thumbnail" style="background-image: url('{{ artwork.seller.user.profile_image }}')"></div>
-            <p>Seller: {{ artwork.seller.user.name }}</p>
+            <a href="{% url "seller_profile" id=user.id %}">
+                <p>Seller: {{ artwork.seller.user.name }}</p>
+            </a>
         </div>
     </div>
 {% endblock %}
