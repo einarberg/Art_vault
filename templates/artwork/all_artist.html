@@ -2,16 +2,15 @@
 
 {% block content %}
     <div class="all-artwork-container">
-        {% for artwork in artworks %}
-            <!-- TODO: make it look better -->
-            <!-- TODO: fix images that or not loading -->
+        {% for artist in artists %}
             <div class="artwork-info">
-                <a href="#">
-                    <div class="artwork-thumbnail" style="background-image: url('{{ artwork.seller.user.profile_image }}')"></div>
-                    <h3>{{artwork.artist.seller.user.name}}</h3>
+                <a href="{% url "" id=artist.id %}">
+                    <div class="artwork-thumbnail" style="background-image: url('{{ artist.seller.user.profile_image }}')"></div>
+                    <h3>{{ artist.seller.user.name }}</h3>
+                    <p>{{ artist.seller.user.email }}</p>
+                    <p>{{ artist.seller.user.bio }}</p>
                 </a>
             </div>
-
         {% endfor %}
     </div>
 {% endblock %}
