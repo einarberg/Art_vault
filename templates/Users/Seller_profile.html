@@ -22,9 +22,9 @@
         {% for artwork in artworks %}
             <!-- TODO: make it look better -->
             <div class="artwork-info">
-                <a href="{% url "artwork-by-id" id=user.seller.artwork.id %}">
-                    <div class="artwork-thumbnail" style="background-image: url('{{ user.seller.artwork.thumbnail }}')"></div>
-                    <h3>{{ user.seller.artwork.title }}</h3>
+                <a href="{% url "artwork-by-id" id=artwork.id %}">
+                    <div class="artwork-thumbnail" style="background-image: url('{{ artwork.thumbnail }}')"></div>
+                    <h3>{{ artwork.title }}</h3>
                     <p>{{ user.name }}</p>
                 </a>
             </div>
