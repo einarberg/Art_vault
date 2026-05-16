@@ -24,12 +24,12 @@
                 {% elif artwork.bid_status == "Starting" %}
                     <form method="post">
                         {% csrf_token %}
-
+                        <p>Minimum bid: {{ min_bid }}</p>
                         <input 
                             type="number"
                             name="bid_amount"
                             placeholder="Enter your bid"
-                            min="1"
+                            min="{{ min_bid }}"
                             required
                         >
 
@@ -40,12 +40,12 @@
                 {% else %}
                     <form method="post">
                         {% csrf_token %}
-
+                        <p>Minimum bid: {{ min_bid }}</p>
                         <input 
                             type="number"
                             name="bid_amount"
                             placeholder="Enter your bid"
-                            min="1"
+                            min="{{ min_bid }}"
                             required
                         >
 
