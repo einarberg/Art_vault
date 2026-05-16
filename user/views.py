@@ -16,7 +16,9 @@ def register(request):
             auth_user =form.save()
 
             UserProfile.objects.create(
-                user=auth_user
+                auth_user=auth_user,
+                name=auth_user.username,
+                email=auth_user.email
             )
 
             return redirect('login')
