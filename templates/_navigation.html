@@ -14,7 +14,7 @@
                             <button type="submit" class="nav-link">Logout</button>
                         </form>
                     </li>
-                    <a class="nav-link" aria-disabled="false" href="{% url "bids" id=user.id %}">bids</a>
+                    <a class="nav-link" aria-disabled="false" href="{% url "get_bids" id=user.id %}">bids</a>
                     <a class="nav-link" aria-disabled="false" href="{% url "profile" id=user.id %}">profile</a>
                 {% else %}
                     <a class="nav-link disabled" aria-disabled="true" href="{% url "finalize-bid-index" %}">Finalize bids</a>
