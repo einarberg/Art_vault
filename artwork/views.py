@@ -45,8 +45,12 @@ def homepage(request):
 
 def all_artworks(request):
     artworks = Artwork.objects.all()
-    return render(request, "artwork/all_artworks.html", {"artworks": artworks})
 
+    return render(
+        request,
+        "artwork/all_artworks.html",
+        {"artworks": artworks}
+    )
 
 def all_artists(request):
     artists = UserProfile.objects.filter(seller__artist__isnull=False)

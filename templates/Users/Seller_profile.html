@@ -1,36 +1,163 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <a href="javascript:history.back()">back</a>
-    <h1>Seller Profile</h1>
 
-    <div class="user_info">
-        <p>{{ user.name }}</p>
-        <p>{{ user.email }}</p>
-        {% if user.seller.gallery %}
-            <p> Gallery </p>
-            <p>{{ user.seller.gallery.city }}, {{ user.seller.gallery.postal_code }}, {{ user.seller.gallery.street_name }}</p>
-        {% endif %}
-        {% if user.seller.artist %}
-            <p> Artist </p>
-        {% endif %}
-        <p>{{ user.bio }}</p>
-        <div class="artwork-images">
-            <div class="artwork-thumbnail" style="background-image: url('{{ user.cover_image }}')"></div>
-        </div>
-      <div class="all-artwork-container">
-        {% for artwork in artworks %}
-            <!-- TODO: make it look better -->
-            <div class="artwork-info">
-                <a href="{% url "artwork-by-id" id=artwork.id %}">
-                    <div class="artwork-thumbnail" style="background-image: url('{{ artwork.thumbnail }}')"></div>
-                    <h3>{{ artwork.title }}</h3>
-                    <p>{{ user.name }}</p>
-                </a>
+<div style="
+max-width:1400px;
+margin:40px auto;
+color:white;
+">
+
+    <a href="javascript:history.back()"
+    style="
+    color:#A2C2D4;
+    text-decoration:none;
+    ">
+        ← Back
+    </a>
+
+
+    <div style="
+    display:flex;
+    gap:30px;
+    margin-top:20px;
+    align-items:flex-start;
+    ">
+
+
+        <!-- PROFILE CARD -->
+
+        <div style="
+        width:280px;
+        background:#003B5C;
+        padding:25px;
+        border-radius:10px;
+        border:1px solid #005B5C;
+        text-align:center;
+        ">
+
+            <div style="
+            width:150px;
+            height:150px;
+            border-radius:50%;
+            background-image:url('{{ seller.profile_image }}');
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            margin:auto;
+            margin-bottom:20px;
+            border:3px solid #005B5C;
+            ">
             </div>
 
-        {% endfor %}
-      </div>
+            <h2>{{ seller.name }}</h2>
+
+            {% if seller.seller.artist %}
+                <p style="color:#A2C2D4;">
+                    Artist
+                </p>
+            {% endif %}
+
+            {% if seller.seller.gallery %}
+                <hr>
+
+                <p>{{ seller.seller.gallery.city }}</p>
+
+                <p>{{ seller.seller.gallery.street_name }}</p>
+
+                <p>{{ seller.seller.gallery.postal_code }}</p>
+
+            {% endif %}
+
+        </div>
+
+
+
+        <!-- INFO -->
+
+        <div style="
+        flex:1;
+        background:#003B5C;
+        padding:25px;
+        border-radius:10px;
+        border:1px solid #005B5C;
+        ">
+
+            <h1>Seller Profile</h1>
+
+            <hr>
+
+            <h4>Bio</h4>
+
+            <p>
+                {{ seller.bio }}
+            </p>
+
+
+            <h4 style="
+            margin-top:40px;
+            ">
+                Listed Artworks
+            </h4>
+
+
+            <div style="
+            display:grid;
+            grid-template-columns:repeat(2,340px);
+            gap:25px;
+            margin-top:20px;
+            ">
+
+                {% for artwork in artworks %}
+
+                <div style="
+                background:#002C49;
+                border-radius:10px;
+                overflow:hidden;
+                border:1px solid #005B5C;
+                ">
+
+                    <a href="{% url 'artwork-by-id' id=artwork.id %}"
+                    style="
+                    color:white;
+                    text-decoration:none;
+                    ">
+
+                        <div style="
+                        height:260px;
+                        background-image:url('{{ artwork.thumbnail }}');
+                        background-size:150%;
+                        background-position:70% center;
+                        background-repeat:no-repeat;
+                        ">
+                        </div>
+
+                        <div style="padding:15px;">
+
+                            <h4>
+                                {{ artwork.title }}
+                            </h4>
+
+                            <p style="
+                            color:#A2C2D4;
+                            ">
+                                {{ seller.name }}
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
     </div>
+
+</div>
 
 {% endblock %}

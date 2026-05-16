@@ -1,20 +1,109 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <a href="javascript:history.back()">back</a>
-    <h1>Profile</h1>
 
-    <div class="user_info">
-        <p>{{ user.name }}</p>
-        <p>{{ user.email }}</p>
-        <p>{{ user.bio }}</p>
-        <div class="artwork-images">
-            <div class="artwork-thumbnail" style="background-image: url('{{ user.profile_image }}')"></div>
+<div style="
+max-width:1400px;
+margin:40px auto;
+color:white;
+">
+
+    <a href="javascript:history.back()"
+    style="
+    color:#A2C2D4;
+    text-decoration:none;
+    ">
+        ← Back
+    </a>
+
+
+    <div style="
+    display:flex;
+    gap:30px;
+    margin-top:20px;
+    align-items:flex-start;
+    ">
+
+
+        <!-- PROFILE CARD -->
+
+        <div style="
+        width:280px;
+        background:#003B5C;
+        padding:25px;
+        border-radius:10px;
+        border:1px solid #005B5C;
+        text-align:center;
+        ">
+
+            <div style="
+            width:150px;
+            height:150px;
+            border-radius:50%;
+            background-image:url('{{ user.profile_image }}');
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            margin:auto;
+            margin-bottom:20px;
+            border:3px solid #005B5C;
+            ">
+            </div>
+
+            <h2>{{ user.name }}</h2>
+
+            <p style="
+            color:#A2C2D4;
+            ">
+                {{ user.email }}
+            </p>
+
         </div>
+
+
+
+        <!-- INFO -->
+
+        <div style="
+        flex:1;
+        background:#003B5C;
+        padding:25px;
+        border-radius:10px;
+        border:1px solid #005B5C;
+        ">
+
+            <h1>Profile</h1>
+
+            <hr>
+
+            <h4>Bio</h4>
+
+            <p>
+                {{ user.bio }}
+            </p>
+
+
+            <div style="
+            margin-top:40px;
+            ">
+
+                <a href="{% url 'edit_profile' %}"
+                style="
+                background:#008080;
+                color:white;
+                padding:12px 24px;
+                border-radius:8px;
+                text-decoration:none;
+                ">
+                    Edit Profile
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <a href="{% url 'edit_profile' %}">
-        <button>Edit Profile</button>
-    </a>
+</div>
 
 {% endblock %}
