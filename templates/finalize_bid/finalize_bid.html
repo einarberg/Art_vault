@@ -82,43 +82,43 @@ align-items:flex-start;
 
     <!-- CONTACT -->
 
-    <div style="
-    width:350px;
-    background:#003B5C;
-    border-radius:10px;
-    padding:25px;
-    border:1px solid #005B5C;
-    ">
+    <form method="POST">
 
-        <h3>Contact Information</h3>
-
-        <hr>
+        {% csrf_token %}
 
         <label>Street name</label>
-        <input class="form-control mb-3">
+        <input name = "street" class="form-control mb-3">
 
         <label>City</label>
-        <input class="form-control mb-3">
+        <input name="city" class="form-control mb-3">
 
         <label>Postal code</label>
-        <input class="form-control mb-3">
+        <input name="postal_code" class="form-control mb-3">
 
         <label>National ID</label>
-        <input class="form-control mb-3">
+        <input name="national_id" class="form-control mb-3">
 
-        <label>Country</label>
-
-        <select class="form-control">
-
-            <option>Select country</option>
+        <select name="country" class="form-control">
             <option>Iceland</option>
             <option>Norway</option>
             <option>Sweden</option>
             <option>Denmark</option>
-
         </select>
 
-    </div>
+        <button
+        type="submit"
+        class="btn"
+        style="
+        margin-top: 25px;
+        width:150px;
+        background:#005B5C;
+        color:white;
+        ">
+            Next Step
+        </button>
+
+
+    </form>
 
 
 

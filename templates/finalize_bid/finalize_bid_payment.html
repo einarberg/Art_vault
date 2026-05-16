@@ -100,70 +100,78 @@ align-items:flex-start;
         <h3>Payment Information</h3>
         <hr>
 
-        <label>Pick payment option:</label>
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Select Payment Type</label>
+            <input type="radio" name="payment_type" value="credit"> Credit Card<br>
+            <input type="radio" name="payment_type" value="bank"> Bank Transfer<br>
+            <input type="radio" name="payment_type" value="wire"> Wire Transfer<br>
+
+            <div id="credit-card-fields" style="display:none;">
+                <input name="cardholder_name" placeholder="Cardholder Name"><br>
+                <input name="card_number" placeholder="Card Number"><br>
+                <input name="cvc" placeholder="CVC"><br>
+            </div>
+
+            <div id="bank-fields" style="display:none;">
+                <input name="bank_account" placeholder="Bank Account"><br>
+            </div>
+
+            <div id="wire-fields" style="display:none;">
+                <input name="bank_name" placeholder="Name Name"><br>
+                <input name="routing_number" placeholder="Routing Number"><br>
+                <input name="account_number" placeholder="Account Number"><br>
+            </div>
+
+        </form>
 
         <div style="
-        display:flex;
-        gap:10px;
-        margin-top:10px;
-        margin-bottom:25px;
-        ">
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:40px;
+    ">
 
-            <a href="{% url 'credit-card' %}"
-            class="btn btn-sm"
-            style="background:#005B5C;color:white;border:2px solid white;">
-                Credit Card
+            <a href="{% url 'finalize-bid-index' %}"
+            class="btn"
+            style="
+            background:#005B5C;
+            color:white;
+            width:160px;
+            ">
+                Go Back
             </a>
 
-            <a href="{% url 'bank-transfer' %}"
-            class="btn btn-sm"
-            style="background:#005B5C;color:white;">
-                Bank Transfer
-            </a>
 
-            <a href="{% url 'wire-transfer' %}"
-            class="btn btn-sm"
-            style="background:#005B5C;color:white;">
-                Wire Transfer
+            <a href="{% url 'finalize-bid-review' %}"
+            class="btn"
+            style="
+            background:#008080;
+            color:white;
+            width:160px;
+            ">
+                Review Step
             </a>
 
         </div>
-
-        <label>Cardholder name</label>
-        <input class="form-control mb-3">
-
-        <label>Credit card number</label>
-        <input class="form-control mb-3">
-
-        <div style="display:flex;gap:15px;">
-
-            <div style="flex:1;">
-                <label>Expiry date</label>
-                <input class="form-control">
-            </div>
-
-            <div style="width:120px;">
-                <label>CVC</label>
-                <input class="form-control">
-            </div>
-
-        </div>
-
-        <a href="{% url 'finalize-bid-review' %}"
-        class="btn"
-        style="
-        position:absolute;
-        bottom:-50px;
-        right:25px;
-        width:150px;
-        background:#005B5C;
-        color:white;
-        ">
-            Next Step
-        </a>
 
     </div>
 
-</div>
 
+</div>
+<script>
+const radios = document.querySelectorAll('input[name="payment_type"]');
+const creditFields = document.getElementById('credit-card-fields');
+const bankFields = document.getElementById('bank-fields');
+const wireFields = document.getElementById('wire-fields');
+
+radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+        creditFields.style.display = radio.value === 'credit' ? 'block' : 'none';
+        bankFields.style.display = radio.value === 'bank' ? 'block' : 'none';
+        wireFields.style.display = radio.value === 'wire' ? 'block' : 'none';
+    });
+});
+</script>
 {% endblock %}

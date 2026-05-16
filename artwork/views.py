@@ -39,7 +39,7 @@ def homepage(request):
             ]
         })
 
-    artworks = Artwork.objects.filter(bid_status__in=['Starting', 'Bidding']).order_by('bid_price')
+    artworks = Artwork.objects.order_by('bid_price')
     return render(request, "artwork/homepage.html", {"artwork": artworks})
 
 
