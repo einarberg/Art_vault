@@ -54,7 +54,7 @@ def all_artists(request):
 
 def artist_artworks(request, id):
     artworks = Artwork.objects.filter(artist__seller__user__id=id)
-    return render(request, 'artwork/artist.html', {'artworks': artwork}
+    return render(request, 'artwork/artist.html', {'artworks': artwork})
 
 
 def get_artwork_by_id(request, id):
