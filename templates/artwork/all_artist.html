@@ -4,7 +4,7 @@
     <div class="all-artwork-container">
         {% for artist in artists %}
             <div class="artwork-info">
-                <a href="{% url "" id=artist.id %}">
+                <a href="{% url 'artist' id=artist.id %}">
                     <div class="artwork-thumbnail" style="background-image: url('{{ artist.seller.user.profile_image }}')"></div>
                     <h3>{{ artist.seller.user.name }}</h3>
                     <p>{{ artist.seller.user.email }}</p>
