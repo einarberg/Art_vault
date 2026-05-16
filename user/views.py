@@ -1,7 +1,7 @@
 from user.forms import ProfileForm
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
-from user.models import User
+from user.models import User, Seller
 from artwork.models import Artwork
 from user.forms import CustomUserCreationForm
 
