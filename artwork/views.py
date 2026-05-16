@@ -8,6 +8,7 @@ from datetime import timedelta
 import artwork
 from artwork.models import Artwork
 from artwork.models import Style
+from finalize_bid.models import Bid
 from django.shortcuts import get_object_or_404
 
 
