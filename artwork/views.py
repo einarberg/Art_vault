@@ -6,6 +6,7 @@ from django.utils.timezone import now
 from datetime import timedelta
 
 import artwork
+from user.models import User
 from artwork.models import Artwork
 from artwork.models import Style
 from finalize_bid.models import Bid
