@@ -2,14 +2,106 @@
 
 {% block content %}
 
-    <h1>Login</h1>
+<style>
+
+input{
+    width:100%;
+    padding:10px;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+</style>
+
+<div style="
+width:500px;
+margin:60px auto;
+background-color:#003B5C;
+padding:35px;
+border-radius:10px;
+border:2px solid #005B5C;
+">
+
+    <h1 style="
+    color:#F0E5D8;
+    text-align:center;
+    ">
+        Login
+    </h1>
+
+    <p style="
+    color:#A2C2D4;
+    text-align:center;
+    margin-bottom:30px;
+    ">
+        Login to buy, sell and bid on artwork
+    </p>
 
     <form method="post" action="{% url 'login' %}">
 
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Login" />
+
+        {% for error in form.non_field_errors %}
+            <p style="
+            color:#ff6b6b;
+            margin:2px 0;
+            font-size:14px;
+            ">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        <div style="margin-bottom:20px;">
+
+            <label style="color:#F0E5D8;">
+                Username
+            </label><br>
+
+            {{ form.username }}
+
+        </div>
+
+        <div style="margin-bottom:20px;">
+
+            <label style="color:#F0E5D8;">
+                Password
+            </label><br>
+
+            {{ form.password }}
+
+        </div>
+
+        <button
+            type="submit"
+            style="
+            width:100%;
+            background:#005B5C;
+            color:white;
+            border:none;
+            padding:12px;
+            border-radius:6px;
+            ">
+
+            Login
+
+        </button>
+
+        <p style="
+        text-align:center;
+        margin-top:20px;
+        color:#A2C2D4;
+        ">
+
+            Don't have an account?
+
+            <a href="{% url 'register' %}">
+                Register
+            </a>
+
+        </p>
 
     </form>
+
+</div>
 
 {% endblock %}
