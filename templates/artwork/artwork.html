@@ -22,9 +22,37 @@
                 {% if artwork.bid_status == "Sold" %}
                     <p>Sold</p>
                 {% elif artwork.bid_status == "Starting" %}
-                    <p>submit bid</p>
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <input 
+                            type="number"
+                            name="bid_amount"
+                            placeholder="Enter your bid"
+                            min="1"
+                            required
+                        >
+
+                        <button type="submit">
+                            Submit Bid
+                        </button>
+                    </form>
                 {% else %}
-                    <p>resubmit bid</p>
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <input 
+                            type="number"
+                            name="bid_amount"
+                            placeholder="Enter your bid"
+                            min="1"
+                            required
+                        >
+
+                        <button type="submit">
+                            Resubmit Bid
+                        </button>
+                    </form>
                 {% endif %}
             </div>
         </div>
