@@ -12,6 +12,19 @@
     <div class="expiring-bids">
         <span class="">
             <h4 class="text">Expiring Bids</h4>
+            {% for artwork in artworks %}
+
+                <!-- TODO: make it look better -->
+
+                <div class="artwork-info">
+                    <a href="{% url "artwork-by-id" id=artwork.id %}">
+                        <div class="artwork-thumbnail" style="background-image: url('{{artwork.thumbnail}}')"></div>
+                        <h3>{{artwork.title}}</h3>
+                        <p>{{ artwork.artist.seller.user.name }}</p>
+                    </a>
+                </div>
+
+            {% endfor %}
         </span>
 
     </div>
