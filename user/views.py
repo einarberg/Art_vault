@@ -1,7 +1,7 @@
 from user.forms import ProfileForm
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
-from user.models import User
+from user.models import UserProfile
 from artwork.models import Artwork
 from user.forms import CustomUserCreationForm
 
@@ -13,7 +13,12 @@ def register(request):
         print(form.errors)
 
         if form.is_valid():
-            form.save()
+            auth_user =form.save()
+
+            UserProfile.objects.create(
+                user=auth_user
+            )
+
             return redirect('login')
     else:
         form = CustomUserCreationForm()
@@ -25,12 +30,12 @@ def register(request):
 
 
 def profile(request, id):
-    user = get_object_or_404(User, id=id)
+    user = get_object_or_404(UserProfile, id=id)
     return render(request, 'Users/Profile.html', {"user": user})
 
 
 def seller_profile(request, id):
-    user = get_object_or_404(User, id=id)
+    user = get_object_or_404(UserProfile, id=id)
     artworks = Artwork.objects.filter(seller__user__id=id)
     return render(request, 'Users/Seller_profile.html', {"user": user, "artworks": artworks})
 

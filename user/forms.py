@@ -1,5 +1,5 @@
 from django import forms
-from user.models import User
+from user.models import UserProfile
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -37,6 +37,6 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 class ProfileForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = UserProfile
         fields = ['name', 'email', 'bio', 'profile_image']
 

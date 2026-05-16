@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User as AuthUser
 
-class User(models.Model):
+class UserProfile(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(blank=True, null=True)
 
@@ -20,6 +20,7 @@ class User(models.Model):
     )
 
     bio = models.TextField(blank=True, null=True)
+
     cover_image = models.ImageField(
         upload_to='covers/',
         blank=True,
@@ -32,7 +33,7 @@ class User(models.Model):
 
 class Buyer(models.Model):
     user = models.OneToOneField(
-        User,
+        UserProfile,
         on_delete=models.CASCADE,
         related_name='buyer'
     )
@@ -44,7 +45,7 @@ class Buyer(models.Model):
 
 class Seller(models.Model):
     user = models.OneToOneField(
-        User,
+        UserProfile,
         on_delete=models.CASCADE
     )
 

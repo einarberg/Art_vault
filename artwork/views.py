@@ -6,10 +6,11 @@ from django.utils.timezone import now
 from datetime import timedelta
 
 import artwork
-from user.models import User
+from user.models import UserProfile
 from artwork.models import Artwork
 from artwork.models import Style
 from finalize_bid.models import Bid
+from user.models import Buyer
 from django.shortcuts import get_object_or_404
 
 
@@ -38,7 +39,7 @@ def homepage(request):
             ]
         })
 
-    artworks = Artwork.objects.all()
+    artworks = Artwork.objects.filter(bid_status__in=['Starting', 'Bidding']).order_by('bid_price')
     return render(request, "artwork/homepage.html", {"artwork": artworks})
 
 
@@ -48,7 +49,7 @@ def all_artworks(request):
 
 
 def all_artists(request):
-    artists = User.objects.filter(seller__artist__isnull=False)
+    artists = UserProfile.objects.filter(seller__artist__isnull=False)
     return render(request, 'artwork/all_artist.html', {'artists':artists})
 
 
@@ -66,7 +67,7 @@ def get_artwork_by_id(request, id):
         
         Bid.objects.create(
             artwork = artwork,
-            buyer = request.user.buyer,
+            buyer = get_object_or_404(Buyer, user=request.user.profile),
             price = bid_amount,
             expiration_date = now() + timedelta(days=30),
             status = "pending",
