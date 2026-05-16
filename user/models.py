@@ -8,7 +8,9 @@ class User(models.Model):
     auth_user = models.OneToOneField(
         AuthUser,
         on_delete=models.CASCADE,
-        related_name='profile'
+        related_name='profile',
+        null = True,
+        blank = True
     )
     
     profile_image = models.ImageField(
