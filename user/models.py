@@ -5,6 +5,12 @@ class User(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(blank=True, null=True)
 
+    auth_user = models.OneToOneField(
+        AuthUser,
+        on_delete=models.CASCADE,
+        related_name='profile'
+    )
+    
     profile_image = models.ImageField(
         upload_to='profiles/',
         blank=True,
