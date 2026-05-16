@@ -93,3 +93,33 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
+
+.footer{
+    background-color: #003B5C;
+    border-top: 2.5px solid #005B5C;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.footer-insta{
+    display: flex;
+    color: #A2C2D4;
+    align-items: center;
+}
+
+.footer-email{
+    display: flex;
+    color: #A2C2D4;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.footer-text{
+    display: flex;
+    align-items: center;
+    color: #A2C2D4;
+}
