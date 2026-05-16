@@ -1,35 +1,82 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="search">
-        <div class="input-group mb-3 mt-3">
-            <input type="search" id="search-value" class="form-control" placeholder="Enter search..." aria-label="Search" aria-describedby="search-icon" />
-        <div id="artwork-search">
 
-        </div>
-        </div>
+<div style="
+background:#003B5C;
+padding:40px 30px 70px 30px;
+text-align:center;
+color:white;
+border-bottom:1px solid #005B5C;
+">
+
+    <div style="
+    max-width:1000px;
+    margin:auto;
+    margin-bottom:50px;
+    ">
+
+        <input
+        type="search"
+        id="search-value"
+        class="form-control"
+        placeholder="Search artists or artworks..."
+        aria-label="Search"
+        style="
+        height:55px;
+        border-radius:8px;
+        ">
+
+        <div id="artwork-search"></div>
+
     </div>
-    <div class="expiring-bids">
-        <span class="">
-            <h4 class="text">Expiring Bids</h4>
-            {% for artwork in artworks %}
 
-                <!-- TODO: make it look better -->
 
-                <div class="artwork-info">
-                    <a href="{% url "artwork-by-id" id=artwork.id %}">
-                        <div class="artwork-thumbnail" style="background-image: url('{{artwork.thumbnail}}')"></div>
-                        <h3>{{artwork.title}}</h3>
-                        <p>{{ artwork.artist.seller.user.name }}</p>
-                    </a>
-                </div>
+    <h1 style="
+    font-size:64px;
+    margin-bottom:15px;
+    ">
+        Discover Timeless Art
+    </h1>
 
-            {% endfor %}
-        </span>
+    <p style="
+    color:#A2C2D4;
+    font-size:22px;
+    max-width:700px;
+    margin:auto;
+    margin-bottom:30px;
+    ">
+        Explore famous artists, discover masterpieces,
+        and participate in live bidding.
+    </p>
 
-    </div>
-    <div class="most-expensive-bids">
+    <a href="{% url 'all-artworks' %}"
+    style="
+    background:#008080;
+    color:white;
+    padding:14px 35px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:18px;
+    display:inline-block;
+    ">
+        Browse Artworks
+    </a>
 
-    </div>
+</div>
+
+
+<div style="
+padding:80px 50px 300px 50px;
+text-align:center;
+color:#A2C2D4;
+min-height:400px;
+">
+
+    <h3>
+        Explore artists and discover famous artworks
+    </h3>
+
+</div>
 
 {% endblock %}
