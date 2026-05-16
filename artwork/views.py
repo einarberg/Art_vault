@@ -54,7 +54,7 @@ def all_artists(request):
 def get_artwork_by_id(request, id):
     artwork = get_object_or_404(Artwork, id=id)
     style = get_object_or_404(Style, id=artwork.style_id)
-    min_bid = artwork.bid_price
+    min_bid = artwork.bid_price + 1
     if request.method == "POST":
         bid_amount = request.POST.get("bid_amount")
         
