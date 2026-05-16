@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="
+width:500px;
+margin:120px auto;
+background:#003B5C;
+padding:30px;
+border-radius:10px;
+border:1px solid #005B5C;
+color:white;
+text-align:center;
+">
+
+    <h2 style="
+    margin-bottom:20px;
+    ">
+        Bid was successful
+    </h2>
+
+    <hr>
+
+    <!-- TODO:
+    Replace with artwork values:
+
+    artwork.title
+    artwork.artist
+    artwork.seller
+    artwork.price
+    artwork.image
+    -->
+
+    <div style="
+    display:flex;
+    gap:20px;
+    margin-top:30px;
+    align-items:flex-start;
+    ">
+
+        <div style="
+        width:140px;
+        height:180px;
+        background:#d9d9d9;
+        border-radius:5px;
+        flex-shrink:0;
+        ">
+        </div>
+
+
+        <div style="
+        text-align:left;
+        ">
+
+            <p style="margin-bottom:12px;">
+                {Artwork title}
+            </p>
+
+            <p style="margin-bottom:12px;">
+                {Artist}
+            </p>
+
+            <p style="margin-bottom:12px;">
+                {Seller}
+            </p>
+
+            <p>
+                {Price}
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <a href="{% url 'homepage' %}"
+    class="btn"
+    style="
+    margin-top:35px;
+    width:150px;
+    background:#005B5C;
+    color:white;
+    ">
+        Done
+    </a>
+
+</div>
+
+{% endblock %}

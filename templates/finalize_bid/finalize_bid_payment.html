@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="
+width:1400px;
+min-height:700px;
+margin:50px auto;
+display:flex;
+gap:30px;
+color:white;
+align-items:flex-start;
+">
+
+    <!-- LEFT SIDE -->
+
+    <div style="width:280px;">
+
+        <div style="
+        display:flex;
+        background:#003B5C;
+        padding:15px;
+        border-radius:10px;
+        margin-bottom:25px;
+        border:1px solid #005B5C;
+        ">
+
+            <div style="
+            width:90px;
+            height:120px;
+            background:#d9d9d9;
+            margin-right:15px;
+            border-radius:5px;
+            ">
+            </div>
+
+            <div>
+                <p style="margin-bottom:10px;">{Artwork title}</p>
+                <p style="margin-bottom:10px;">{Artist}</p>
+                <p style="margin-bottom:10px;">{Seller}</p>
+                <p>{Price}</p>
+            </div>
+
+        </div>
+
+        <a href="{% url 'finalize-bid-index' %}"
+        class="btn"
+        style="width:100%;background:#005B5C;color:white;margin-bottom:10px;">
+            Contact Information
+        </a>
+
+        <button class="btn"
+        style="width:100%;background:#008080;color:white;margin-bottom:10px;">
+            Payment Step
+        </button>
+
+        <button class="btn"
+        style="width:100%;background:#005B5C;color:white;">
+            Review Step
+        </button>
+
+    </div>
+
+
+    <!-- CONTACT PREVIEW -->
+
+    <div style="
+    width:350px;
+    background:#003B5C;
+    border-radius:10px;
+    padding:25px;
+    border:1px solid #005B5C;
+    ">
+
+        <h3>Contact Information</h3>
+        <hr>
+
+        <p>Street name</p>
+        <p>City</p>
+        <p>Postal code</p>
+        <p>National ID</p>
+        <p>Country</p>
+
+    </div>
+
+
+
+    <!-- PAYMENT -->
+
+    <div style="
+    width:600px;
+    min-height:470px;
+    background:#003B5C;
+    border-radius:10px;
+    padding:25px;
+    border:1px solid #005B5C;
+    position:relative;
+    ">
+
+        <h3>Payment Information</h3>
+        <hr>
+
+        <label>Pick payment option:</label>
+
+        <div style="
+        display:flex;
+        gap:10px;
+        margin-top:10px;
+        margin-bottom:25px;
+        ">
+
+            <a href="{% url 'credit-card' %}"
+            class="btn btn-sm"
+            style="background:#005B5C;color:white;border:2px solid white;">
+                Credit Card
+            </a>
+
+            <a href="{% url 'bank-transfer' %}"
+            class="btn btn-sm"
+            style="background:#005B5C;color:white;">
+                Bank Transfer
+            </a>
+
+            <a href="{% url 'wire-transfer' %}"
+            class="btn btn-sm"
+            style="background:#005B5C;color:white;">
+                Wire Transfer
+            </a>
+
+        </div>
+
+        <label>Cardholder name</label>
+        <input class="form-control mb-3">
+
+        <label>Credit card number</label>
+        <input class="form-control mb-3">
+
+        <div style="display:flex;gap:15px;">
+
+            <div style="flex:1;">
+                <label>Expiry date</label>
+                <input class="form-control">
+            </div>
+
+            <div style="width:120px;">
+                <label>CVC</label>
+                <input class="form-control">
+            </div>
+
+        </div>
+
+        <a href="{% url 'finalize-bid-review' %}"
+        class="btn"
+        style="
+        position:absolute;
+        bottom:-50px;
+        right:25px;
+        width:150px;
+        background:#005B5C;
+        color:white;
+        ">
+            Next Step
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -10,4 +10,5 @@ urlpatterns = [
     path('payment/wire/', views.wire_transfer, name='wire-transfer'),
     path('bids/<int:id>/', views.index, name='get_bids'),
     path('review/', views.review, name='finalize-bid-review'),
+    path('success/', views.success, name='finalize-bid-success'),
 ]

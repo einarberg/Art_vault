@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- TODO:
+Display payment information depending on selected payment type
+
+Credit Card:
+cardholder_name
+number
+expiry_date
+cvc
+
+Bank Transfer:
+bank_account
+
+Wire Transfer:
+bank_name
+routing_number
+account_number
+-->
+
+<div style="
+width:900px;
+margin:60px auto;
+background:#003B5C;
+padding:30px;
+border-radius:10px;
+border:1px solid #005B5C;
+color:white;
+">
+
+    <h2 style="
+    text-align:center;
+    margin-bottom:25px;
+    ">
+        Review Information
+    </h2>
+
+    <hr>
+
+    <div style="
+    display:flex;
+    gap:40px;
+    ">
+
+        <!-- LEFT -->
+
+        <div style="
+        flex:1;
+        border-right:1px solid #005B5C;
+        padding-right:30px;
+        ">
+
+            <!-- TODO:
+            Connect Contact_information model
+            -->
+
+            <label>Street name:</label>
+            <input class="form-control mb-3">
+
+            <label>City:</label>
+            <input class="form-control mb-3">
+
+            <label>Postal code:</label>
+            <input class="form-control mb-3">
+
+            <label>National ID:</label>
+            <input class="form-control mb-3">
+
+            <label>Country:</label>
+            <input class="form-control">
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div style="flex:1;">
+
+            <!-- TODO:
+            Show payment info based on selected payment type
+            -->
+
+            <label>Cardholder name:</label>
+            <input class="form-control mb-3">
+
+            <label>Credit card number:</label>
+            <input class="form-control mb-3">
+
+            <div style="
+            display:flex;
+            gap:15px;
+            ">
+
+                <div style="flex:1;">
+
+                    <label>Expiry date:</label>
+                    <input class="form-control">
+
+                </div>
+
+                <div style="width:120px;">
+
+                    <label>CVC:</label>
+                    <input class="form-control">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div style="
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:40px;
+    ">
+
+        <a href="{% url 'credit-card' %}"
+        class="btn"
+        style="
+        background:#005B5C;
+        color:white;
+        width:160px;
+        ">
+            Go Back
+        </a>
+
+
+        <a href="{% url 'finalize-bid-success' %}"
+        class="btn"
+        style="
+        background:#008080;
+        color:white;
+        width:160px;
+        ">
+            Finalize Bid
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

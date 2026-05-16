@@ -23,3 +23,6 @@ def get_bids(request, id):
 
 def review(request):
     return render(request, "finalize_bid/finalize_bid_review.html")
+
+def success(request):
+    return render(request, "finalize_bid/finalize_bid_success.html")
