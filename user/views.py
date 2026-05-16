@@ -28,6 +28,11 @@ def profile(request, id):
     return render(request, 'Users/Profile.html', {"user": user})
 
 
+def seller_profile(request, id):
+    user = get_object_or_404(User, id=id)
+    return render(request, 'Users/Seller_profile.html', {"user": user})
+
+
 def edit_profile(request):
     if request.method == 'POST':
         form = ProfileForm(instance=request.user)
