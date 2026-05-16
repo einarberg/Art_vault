@@ -52,6 +52,11 @@ def all_artists(request):
     return render(request, 'artwork/all_artist.html', {'artists':artists})
 
 
+def artist_artworks(request, id):
+    artworks = Artwork.objects.filter(artist__seller__user__id=id)
+    return render(request, 'artwork/artist.html', {'artworks': artwork}
+
+
 def get_artwork_by_id(request, id):
     artwork = get_object_or_404(Artwork, id=id)
     style = get_object_or_404(Style, id=artwork.style_id)
