@@ -1,19 +1,80 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="all-artwork-container">
+
+<div style="
+background:#001F45;
+width:100%;
+min-height:100vh;
+padding:40px 0;
+">
+
+    <div class="all-artwork-container" style="
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    max-width:1600px;
+    margin:auto;
+    padding:0 40px;
+    ">
+
         {% for artwork in artworks %}
 
-            <!-- TODO: make it look better -->
+            <div class="artwork-info" style="
+            background:#003B5C;
+            border-radius:12px;
+            overflow:hidden;
+            border:1px solid #005B5C;
+            transition:0.3s;
+            min-height:420px;
+            ">
 
-            <div class="artwork-info">
-                <a href="{% url "artwork-by-id" id=artwork.id %}">
-                    <div class="artwork-thumbnail" style="background-image: url('{{artwork.thumbnail}}')"></div>
-                    <h3>{{artwork.title}}</h3>
-                    <p>{{ artwork.artist.seller.user.name }}</p>
+                <a href="{% url 'artwork-by-id' id=artwork.id %}"
+                style="
+                text-decoration:none;
+                color:white;
+                ">
+
+                    <div
+                    class="artwork-thumbnail"
+                    style="
+                    background-image:url('{{ artwork.thumbnail }}');
+                    height:320px;
+                    background-size:cover;
+                    background-position:center;
+                    background-repeat:no-repeat;
+                    border-radius:8px;
+                    margin:20px;
+                    ">
+                    </div>
+
+                    <div style="padding:18px;">
+
+                        <h3 style="
+                        margin-bottom:8px;
+                        font-size:26px;
+                        color:white;
+                        ">
+                            {{ artwork.title }}
+                        </h3>
+
+                        <p style="
+                        color:#A2C2D4;
+                        margin:0;
+                        ">
+                            {{ artwork.artist.seller.user.name }}
+                        </p>
+
+                    </div>
+
                 </a>
+
             </div>
 
         {% endfor %}
+
     </div>
+
+</div>
+
 {% endblock %}

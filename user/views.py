@@ -37,11 +37,19 @@ def profile(request, id):
 
 
 def seller_profile(request, id):
-    user = get_object_or_404(UserProfile, id=id)
-    artworks = Artwork.objects.filter(seller__user__id=id)
-    return render(request, 'Users/Seller_profile.html', {"user": user, "artworks": artworks})
+    seller = get_object_or_404(UserProfile, id=id)
+    artworks = Artwork.objects.filter(
+        seller__user__id=id
+    )
 
-
+    return render(
+        request,
+        'Users/Seller_profile.html',
+        {
+            "seller": seller,
+            "artworks": artworks
+        }
+    )
 def edit_profile(request):
     if request.method == 'POST':
         form = ProfileForm(instance=request.user)
