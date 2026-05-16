@@ -1,1 +1,36 @@
+{% extends "base.html" %}
 
+{% block content %}
+    <a href="javascript:history.back()">back</a>
+    <h1>Seller Profile</h1>
+
+    <div class="user_info">
+        <p>{{ user.name }}</p>
+        <p>{{ user.email }}</p>
+        {% if user.seller.gallery %}
+            <p> Gallery </p>
+            <p>{{ user.seller.gallery.city }}, {{ user.seller.gallery.postal_code }}, {{ user.seller.gallery.street_name }}</p>
+        {% endif %}
+        {% if user.seller.artist %}
+            <p> Artist </p>
+        {% endif %}
+        <p>{{ user.bio }}</p>
+        <div class="artwork-images">
+            <div class="artwork-thumbnail" style="background-image: url('{{ user.cover_image }}')"></div>
+        </div>
+      <div class="all-artwork-container">
+        {% for artwork in artworks %}
+            <!-- TODO: make it look better -->
+            <div class="artwork-info">
+                <a href="{% url "artwork-by-id" id=artwork.id %}">
+                    <div class="artwork-thumbnail" style="background-image: url({{artwork.thumbnail}})"></div>
+                    <h3>{{artwork.title}}</h3>
+                    <p>{{ artwork.artist.seller.user.name }}</p>
+                </a>
+            </div>
+
+        {% endfor %}
+      </div>
+    </div>
+
+{% endblock %}
