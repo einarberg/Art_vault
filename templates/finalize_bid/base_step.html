@@ -1,0 +1,13 @@
+<div class="stepper">
+    {% for s in steps %}
+        {% if s != 'confirmation' %}
+
+            class="step {% if s == step %}active{% endif %}
+        <a>
+            {{ s|capfirst }}
+        </a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% block content %}{% endblock %}

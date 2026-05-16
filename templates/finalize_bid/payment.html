@@ -1,0 +1,45 @@
+{% extends "finalize_bid/base_step.html" %}
+{% block content %}
+<h2>Payment</h2>
+<form method="post" id="payment-form">
+    {% csrf_token %}
+    <p>{{ form.payment_method.label }}: {{ form.payment_method }}</p>
+
+    <div id="credit-card-fields">
+        <p>{{ form.cardholder_name.label_tag }} {{ form.cardholder_name }}</p>
+        <p>{{ form.card_number.label_tag }} {{ form.card_number }}</p>
+        <p>{{ form.expiry_date.label_tag }} {{ form.expiry_date }}</p>
+        <p>{{ form.cvc.label_tag }} {{ form.cvc }}</p>
+    </div>
+    <div id="bank-transfer-fields">
+        <p>{{ form.iban.label_tag }} {{ form.iban }}</p>
+    </div>
+    <div id="wire-transfer-fields">
+        <p>{{ form.sending_bank.label_tag }} {{ form.sending_bank }}</p>
+        <p>{{ form.routing_number.label_tag }} {{ form.routing_number }}</p>
+        <p>{{ form.account_number.label_tag }} {{ form.account_number }}</p>
+    </div>
+
+    <a href="{% url 'finalize_step' bid.id 'contact' %}"> <- Back</a>
+    <button type="submit">Next: Review -></button>
+</form>
+
+<script>
+    const radios = document.querySelectorAll('input[type="payment_method"]');
+    const sections = {
+        credit_card: document.getElementById('credit-card-fields'),
+        bank_transfer: document.getElementById('bank-transfer-fields'),
+        wire_transfer: document.getElementById('wire-transfer-fields'),
+    };
+
+    function updateFields() {
+        const selected = document.querySelector('input[name="payment_method"]:checked')?.value;
+        Object.entries(sections).forEach(([key, el]) => {
+            el.style.display = key === selected ? 'block' : 'none';
+        })
+    }
+
+    radios.forEach(r => r.addEventListener('change', updateFields));
+    updateFields();
+</script>
+{% endblock %}

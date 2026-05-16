@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+AUTH_USER_MODEL = 'user.AuthUser'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user.apps.UserConfig',
     'finalize_bid.apps.FinalizeBidConfig',
-    'artwork.apps.ArtworkConfig'
+    'artwork.apps.ArtworkConfig',
+    'django_countries',
 ]
 
 MIDDLEWARE = [

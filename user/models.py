@@ -1,7 +1,19 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
+class AuthUser(AbstractUser):
+    REQUIRED_FIELDS = []
+
+    def __str__(self):
+        return self.username
 
 class User(models.Model):
+    auth_user = models.OneToOneField(
+        AuthUser,
+        on_delete=models.CASCADE,
+        related_name='profile'
+    )
+
     name = models.CharField(max_length=100)
     email = models.EmailField(blank=True, null=True)
 

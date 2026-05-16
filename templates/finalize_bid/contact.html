@@ -1,0 +1,9 @@
+{% extends "finalize_bid/base_step.html" %}
+{% block content %}
+<h2>Contact Information</h2>
+<form method="post"
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Next: Payment -></button>
+</form>
+{% endblock %}

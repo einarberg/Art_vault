@@ -1,0 +1,28 @@
+{% extends "finalize_bid/base_step.html" %}
+{% block content %}
+<h2>Review Your Details</h2>
+
+<h3>Contact</h3>
+<p>{{ contact.street_name }}, {{ contact.city }}, {{ contact.postal_code }}, {{ contact.country }}</p>
+<p>National ID: {{ contact.national_id }}</p>
+
+<h3>Payment</h3>
+<p>Method: {{ payment.payment_method }}</p>
+{% if payment.payment_method == 'credit_card' %}
+    <p>Cardholder: {{ payment.cardholder_name }}</p>
+    <p>Card: **** **** **** {{ payment.card_number|slice:"-4" }}</p>
+    <p>Expiry: {{ payment.expiry_date }}</p>
+{% elif payment.payment_method == 'bank_transfer' %}
+    <p>IBAN: {{ payment.iban }}</p>
+{% elif payment.payment_method == 'wire_transfer' %}
+    <p>Bank: {{ payment.sending_bank }}</p>
+    <p>Routing: {{ payment.routing_number }}</p>
+    <p>Account: {{ payment.account_number }}</p>
+{% endif %}
+
+<a href="{% url 'finalize_step' bid.id 'payment' %}"><- Back </a>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm bid</button>
+</form>
+{% endblock %}
