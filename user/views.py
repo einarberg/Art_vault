@@ -2,7 +2,6 @@ from user.forms import ProfileForm
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from user.models import User
-from user.models import Seller
 from artwork.models import Artwork
 from user.forms import CustomUserCreationForm
 
@@ -31,7 +30,8 @@ def profile(request, id):
 
 
 def seller_profile(request, id):
-    artworks = Artwork.objects.filter(id=seller.user.id)
+    sellerid = id
+    artworks = Artwork.objects.filter(sellerid=seller__user__id)
     user = get_object_or_404(User, id=id)
     return render(request, 'Users/Seller_profile.html', {"user": user, "artworks": artworks})
 
