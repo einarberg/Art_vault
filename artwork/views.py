@@ -2,6 +2,8 @@ from django.core.signals import request_started
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from psycopg2.extensions import JSON
+from django.utils.timezone import now
+from datetime import timedelta
 
 import artwork
 from artwork.models import Artwork
@@ -51,5 +53,18 @@ def all_artists(request):
 def get_artwork_by_id(request, id):
     artwork = get_object_or_404(Artwork, id=id)
     style = get_object_or_404(Style, id=artwork.style_id)
+    if request.method == "POST":
+        bid_amount = request.POST.get("bid_amount")
+        
+        Bid.objects.create(
+            artwork = artwork,
+            buyer = request.user.buyer,
+            price = bid_amount,
+            expiration_date = now() + timedelta(days=30),
+            status = "pending",
+        )
+
+    artwork.bid_status = "Bidding"
+    artwork.save()
     return render(request, "artwork/artwork.html", {"artwork": artwork, "style": style})
 
