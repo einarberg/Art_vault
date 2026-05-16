@@ -53,6 +53,7 @@ def all_artists(request):
 def get_artwork_by_id(request, id):
     artwork = get_object_or_404(Artwork, id=id)
     style = get_object_or_404(Style, id=artwork.style_id)
+    min_bid = artwork.bid_price
     if request.method == "POST":
         bid_amount = request.POST.get("bid_amount")
         
@@ -65,6 +66,7 @@ def get_artwork_by_id(request, id):
         )
 
     artwork.bid_status = "Bidding"
+    artwork.bid_price = bid_amount
     artwork.save()
-    return render(request, "artwork/artwork.html", {"artwork": artwork, "style": style})
+    return render(request, "artwork/artwork.html", {"artwork": artwork, "style": style, "min_bid": min_bid})
 
