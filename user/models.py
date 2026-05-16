@@ -31,7 +31,8 @@ class User(models.Model):
 class Buyer(models.Model):
     user = models.OneToOneField(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name='buyer'
     )
 
     def __str__(self):
