@@ -1,67 +1,173 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <!-- TODO: make it look better -->
-    <div class="artwork-container">
-        <div class="artwork-images">
-            <div class="artwork-thumbnail" style="background-image: url('{{ artwork.thumbnail }}')"></div>
-        </div>
-        <div class="artwork-info">
-            <div>
-                <h1>{{ artwork.title }}</h1>
-                <p>By: {{ artwork.artist.seller.user.name }}</p>
-                <p>Medium: {{ artwork.medium }}</p>
-                <p>Style: {{ style.style }}</p>
-                <p>Listing date: {{ artwork.listing_date }}</p>
-                <p>Starting bid price: {{ artwork.start_bid_price }}</p>
-                <p>Dimensions: {{ artwork.dimensions }}</p>
-                <p>Year of creation: {{ artwork.year_of_creation }}</p>
-                <p>Edition: {{ artwork.edition }}</p>
-                <p>Provenance: {{ artwork.provenance }}</p>
-            </div>
-            <div>
-                {% if artwork.bid_status == "Sold" %}
-                    <p>Sold</p>
-                {% elif artwork.bid_status == "Starting" %}
-                    <form method="post">
-                        {% csrf_token %}
-                        <p>Minimum bid: {{ min_bid }}</p>
-                        <input 
-                            type="number"
-                            name="bid_amount"
-                            placeholder="Enter your bid"
-                            min="{{ min_bid }}"
-                            required
-                        >
 
-                        <button type="submit">
-                            Submit Bid
-                        </button>
-                    </form>
-                {% else %}
-                    <form method="post">
-                        {% csrf_token %}
-                        <p>Minimum bid: {{ min_bid }}</p>
-                        <input 
-                            type="number"
-                            name="bid_amount"
-                            placeholder="Enter your bid"
-                            min="{{ min_bid }}"
-                            required
-                        >
+<div style="
+max-width:1400px;
+margin:40px auto;
+display:flex;
+gap:30px;
+align-items:flex-start;
+color:white;
+min-height:700px;
+">
 
-                        <button type="submit">
-                            Resubmit Bid
-                        </button>
-                    </form>
-                {% endif %}
-            </div>
+    <!-- LEFT IMAGE -->
+
+    <div style="
+    width:350px;
+    background:#003B5C;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #005B5C;
+    ">
+
+        <div style="
+        background-image:url('{{ artwork.thumbnail }}');
+        height:500px;
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+        border-radius:8px;
+        ">
         </div>
-        <div>
-            <div class="profile-thumbnail" style="background-image: url('{{ artwork.seller.user.profile_image }}')"></div>
-            <a href="{% url "seller_profile" id=artwork.seller.user.id %}">
-                <p>Seller: {{ artwork.seller.user.name }}</p>
-            </a>
-        </div>
+
     </div>
+
+
+    <!-- CENTER INFO -->
+
+    <div style="
+    flex:1;
+    background:#003B5C;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid #005B5C;
+    ">
+
+        <h1 style="margin-bottom:20px;">
+            {{ artwork.title }}
+        </h1>
+
+        <p><strong>By:</strong> {{ artwork.artist.seller.user.name }}</p>
+
+        <hr>
+
+        <p><strong>Medium:</strong> {{ artwork.medium }}</p>
+
+        <p><strong>Style:</strong> {{ style.style }}</p>
+
+        <p><strong>Listing date:</strong> {{ artwork.listing_date }}</p>
+
+        <p><strong>Starting bid:</strong> {{ artwork.start_bid_price }}</p>
+
+        <p><strong>Dimensions:</strong> {{ artwork.dimensions }}</p>
+
+        <p><strong>Year:</strong> {{ artwork.year_of_creation }}</p>
+
+        <p><strong>Edition:</strong> {{ artwork.edition }}</p>
+
+        <p><strong>Provenance:</strong></p>
+
+        <p>{{ artwork.provenance }}</p>
+
+        <hr>
+
+
+        {% if artwork.bid_status == "Sold" %}
+
+            <h4>Sold</h4>
+
+        {% else %}
+
+            <form method="post">
+
+                {% csrf_token %}
+
+                <h4>
+                    Minimum bid: {{ min_bid }}
+                </h4>
+
+                <div style="
+                display:flex;
+                gap:15px;
+                margin-top:20px;
+                ">
+
+                    <input
+                    type="number"
+                    name="bid_amount"
+                    min="{{ min_bid }}"
+                    required
+                    placeholder="Enter your bid"
+                    class="form-control">
+
+                    <button
+                    type="submit"
+                    class="btn"
+                    style="
+                    background:#008080;
+                    color:white;
+                    width:180px;
+                    ">
+
+                    {% if artwork.bid_status == "Starting" %}
+                        Submit Bid
+                    {% else %}
+                        Resubmit Bid
+                    {% endif %}
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- SELLER -->
+
+    <div style="
+    width:220px;
+    background:#003B5C;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #005B5C;
+    text-align:center;
+    ">
+
+        <div style="
+        background-image:url('{{ artwork.seller.user.profile_image }}');
+        width:120px;
+        height:120px;
+        border-radius:50%;
+        background-size:cover;
+        background-position:center;
+        margin:auto;
+        ">
+        </div>
+
+        <a href="{% url 'seller_profile' id=artwork.seller.user.id %}"
+        style="
+        color:white;
+        text-decoration:none;
+        ">
+
+            <h4 style="margin-top:20px;">
+                Seller
+            </h4>
+
+            <p>
+                {{ artwork.seller.user.name }}
+            </p>
+
+        </a>
+
+    </div>
+
+</div>
+
 {% endblock %}
