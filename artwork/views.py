@@ -49,7 +49,7 @@ def all_artworks(request):
 
 def all_artists(request):
     artists = User.objects.filter(seller__artist__isnull=False)
-    return render(request, 'artwork/all_artist.html', {'artists':artists}
+    return render(request, 'artwork/all_artist.html', {'artists':artists})
 
 
 def get_artwork_by_id(request, id):
